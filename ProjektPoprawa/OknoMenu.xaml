@@ -1,0 +1,79 @@
+﻿<Window x:Class="Projekt_Poprawa.OknoMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="OknoMenu" Height="341" Width="578" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.CommandBindings>
+        <CommandBinding Command="Close"
+                        CanExecute="CommandBinding_CanExecute"
+                        Executed="CommandBinding_Executed"
+                   />
+        <CommandBinding Command="Open"
+                        CanExecute="CommandBinding_CanExecute_1"
+                        Executed="CommandBinding_Executed_1"
+                        />
+        <CommandBinding Command="Delete"
+                        CanExecute="CommandBinding_CanExecute_2"
+                        Executed="CommandBinding_Executed_2"
+                        />
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Pictures\przystan.png"/>
+        </Grid.Background>
+        <DockPanel>
+            <Menu DockPanel.Dock="Right" Margin="0,0,0,280">
+                <MenuItem Header="Opcje" HorizontalAlignment="Center" Width="73" >
+                    <MenuItem Header="Kalkulator" Command="Open" InputGestureText="CTRL+K">
+                        <MenuItem.Icon>
+                            <Image Source="Pictures/calcIcon.png" Width="15"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Header="Zamknij aplikacje" Command="Close">
+                        <MenuItem.Icon>
+                            <Image Source="Pictures/exitIcon.png" Width="21"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator/>
+                    <MenuItem Header="Cofnij" Command="Delete">
+                        <MenuItem.Icon>
+                            <Image Source="Pictures/arrow.png" Width="21"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <ListView Name="listaDan" Margin="0,28,0,0" FontFamily="Script MT Bold" FontWeight="SemiBold" FontSize="20" TextOptions.TextHintingMode="Animated">
+            <ListView.Background>
+                <ImageBrush ImageSource="Pictures/przystan.png"/>
+            </ListView.Background>
+            <ListView.View>
+                <GridView AllowsColumnReorder="True">
+                    <GridView.Columns>
+                        <GridViewColumn Header="ID" Width="50" 
+                            DisplayMemberBinding="{Binding ID}" />
+                        <GridViewColumn Header="Danie" Width=" 200"
+                            DisplayMemberBinding="{Binding Nazwa}" />
+                        <GridViewColumn Header="Cena" Width="50"
+                            DisplayMemberBinding="{Binding Cena}" />
+                        <GridViewColumn Header="Rodzaj" Width="140"
+                            DisplayMemberBinding="{Binding Rodzaj}" />
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock FontWeight="Bold" FontSize="15" Text="{Binding Danie}"/>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
+
+        </ListView>
+        <WrapPanel>
+
+        </WrapPanel>
+    </Grid>
+</Window>

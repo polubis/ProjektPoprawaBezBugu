@@ -1,0 +1,26 @@
+﻿<Window x:Class="Projekt_Poprawa.OknoRejestracji"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          Title="OknoRejestracji" Height="422" Width="337" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Pictures\przystan.png"/>
+        </Grid.Background>
+        <WrapPanel Margin="60,0,43,169" HorizontalAlignment="Center" Width="228">
+            <Label Height="35" Width="131" Margin="70,10,0,0" FontWeight="Bold" FontSize="16" >Rodzaj konta</Label>
+            <ComboBox Width="150" Margin="50,0,0,0" x:Name="rodzajKonta" SelectionChanged="wyborRodzajuKonta" Background="#FFC19A9A">
+                <ComboBoxItem FontWeight="Bold">Właściciel</ComboBoxItem>
+                <ComboBoxItem FontWeight="Bold">Pracownik</ComboBoxItem>
+            </ComboBox>
+        </WrapPanel>
+        <WrapPanel x:Name="n" Margin="0,75,0,0">
+
+            <Frame x:Name="ramkaDoStron"  NavigationUIVisibility="Hidden"/>
+
+
+        </WrapPanel>
+        <WrapPanel Margin="187,276,63,66">
+            <Button Width="66" Height="36" Content="Anuluj" FontWeight="Bold" Click="AnulujRejestracje"/>
+        </WrapPanel>
+    </Grid>
+</Window>
